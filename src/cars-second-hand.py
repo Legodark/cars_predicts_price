@@ -3,9 +3,9 @@ import streamlit as st
 
 from features.funciones import modelTransmission, combustibleType 
 
-model_predict = joblib.load("src/models/cars_fit_model.pkl")
-dic_cars = joblib.load("src/data/diccionario_coches.pkl")
-models = joblib.load("src/data/models.pkl")
+model_predict = joblib.load("models/cars_fit_model.pkl")
+dic_cars = joblib.load("data/diccionario_coches.pkl")
+models = joblib.load("data/models.pkl")
 
 st.title('(V.0.4) Predice el precio de tu vehículo:')
 
@@ -19,16 +19,19 @@ toyota = models[6]
 vauxhall = models[7]
 vw = models[8]
 
+model = ' '
+
 def extract_index(model):
     for index, coche in dic_cars.items():
         if coche == model:
             return index
 
 st.text('Selecciona la marca de tu vehículo:')
-sl_model = st.selectbox('Marca', ['Audi', 'BMW', 'Ford', 'Hyundai', 'Mercedes', 'Skoda', 'Toyota', 'Vauxhall',
+sl_model = st.selectbox('Marca', [' ','Audi', 'BMW', 'Ford', 'Hyundai', 'Mercedes', 'Skoda', 'Toyota', 'Vauxhall',
                                   'Volkswagen'])
 with st.form(key='model_form'):
-
+    if sl_model == ' ':
+        pass
     if sl_model == 'Audi':
         model = st.selectbox('Modelo', audi)
     if sl_model == 'BMW':
@@ -58,14 +61,11 @@ with st.form(key='model_form'):
 
     if model != '' and motor != '' and engine != '':
         result = st.form_submit_button('Enviar')
-    else:
-        st.text('Por favor rellena los datos.')
-        st.form_submit_button('Enviar')
 
 car_predict = [[extract_index(model), year, modelTransmission(transmission), mileage, combustibleType(fuelType),
                 tax, motor, engine]]
 
-if sl_model == []:
+if sl_model == ' ':
     st.write('Selecciona una marca de coche')
 else:
     st.write('El precio del', sl_model, model, 'es de', model_predict.predict(car_predict)[0].round(), '£')

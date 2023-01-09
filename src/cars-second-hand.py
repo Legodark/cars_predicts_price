@@ -1,7 +1,7 @@
 import streamlit as st
 import joblib
 
-from data.functions import extract_index, modelTransmission, combustibleType 
+from data.funciones import extract_index, modelTransmission, combustibleType 
 
 models = joblib.load("data/models.pkl")
 model_predict = joblib.load("models/cars_fit_model.pkl")

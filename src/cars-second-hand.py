@@ -6,7 +6,8 @@ from features.funciones import extract_index, modelTransmission, combustibleType
 model_predict = joblib.load("src/models/cars_fit_model.pkl")
 models = joblib.load("src/data/models.pkl")
 
-st.title('(V.0.4) Predice el precio de tu vehículo:')
+st.markdown('# Predice el precio de tu vehículo')
+st.markdown('##### ***(V.0.6)***')
 
 audi = models[0]
 bmw = models[1]
@@ -20,47 +21,48 @@ vw = models[8]
 
 model = ' '
 
-st.text('Selecciona la marca de tu vehículo:')
+st.markdown('### Selecciona la marca de tu vehículo:')
 sl_model = st.selectbox('Marca', [' ','Audi', 'BMW', 'Ford', 'Hyundai', 'Mercedes', 'Skoda', 'Toyota', 'Vauxhall',
                                   'Volkswagen'])
-with st.form(key='model_form'):
-    if sl_model == ' ':
-        pass
-    if sl_model == 'Audi':
-        model = st.selectbox('Modelo', audi)
-    if sl_model == 'BMW':
-        model = st.selectbox('Modelo', bmw)
-    if sl_model == 'Ford':
-        model = st.selectbox('Modelo', ford)
-    if sl_model == 'Hyundai':
-        model = st.selectbox('Modelo', hyundai)
-    if sl_model == 'Mercedes':
-        model = st.selectbox('Modelo', mercedes)
-    if sl_model == 'Skoda':
-        model = st.selectbox('Modelo', skoda)
-    if sl_model == 'Toyota':
-        model = st.selectbox('Modelo', toyota)
-    if sl_model == 'Vauxhall':
-        model = st.selectbox('Modelo', vauxhall)
-    if sl_model == 'Volkswagen':
-        model = st.selectbox('Modelo', vw)
-
-    year = st.slider('Año de fabricación', 1980, 2020)
-    transmission = st.selectbox('Transmisión', ['Automatica', 'Manual', 'Semi-automatica', 'Other'])
-    mileage = st.number_input('Millas', 0, 1000000)
-    fuelType = st.selectbox('Combustible', ['Gasolina', 'Diesel', 'Hybrid', 'Other', 'Electric'])
-    tax = st.number_input('Tasas', 0, 1000, step=10)
-    motor = st.number_input('Miles per gallon', 0, 1000)
-    engine = st.slider('L/motor', 1, 7)
-
-    if model != '' and motor != '' and engine != '':
-        result = st.form_submit_button('Enviar')
-
-car_predict = [[extract_index(model), year, modelTransmission(transmission), mileage, combustibleType(fuelType),
-                tax, motor, engine]]
 
 if sl_model == ' ':
-    st.write('Selecciona una marca de coche')
-else:
-    st.write('El precio del', sl_model, model, 'es de', model_predict.predict(car_predict)[0].round(), '£')
+    st.write('Usa el selector de arriba para seleccionar una marca y que se despliegue el formulario')
+else:     
+    with st.form(key='model_form'):
+        if sl_model == 'Audi':
+            model = st.selectbox('Modelo', audi)
+        if sl_model == 'BMW':
+            model = st.selectbox('Modelo', bmw)
+        if sl_model == 'Ford':
+            model = st.selectbox('Modelo', ford)
+        if sl_model == 'Hyundai':
+            model = st.selectbox('Modelo', hyundai)
+        if sl_model == 'Mercedes':
+            model = st.selectbox('Modelo', mercedes)
+        if sl_model == 'Skoda':
+            model = st.selectbox('Modelo', skoda)
+        if sl_model == 'Toyota':
+            model = st.selectbox('Modelo', toyota)
+        if sl_model == 'Vauxhall':
+            model = st.selectbox('Modelo', vauxhall)
+        if sl_model == 'Volkswagen':
+            model = st.selectbox('Modelo', vw)
 
+        year = st.slider('Año de fabricación', 1980, 2020)
+        transmission = st.selectbox('Transmisión', ['Automatica', 'Manual', 'Semi-automatica', 'Other'])
+        mileage = st.number_input('Millas', 0, 1000000)
+        fuelType = st.selectbox('Combustible', ['Gasolina', 'Diesel', 'Hybrid', 'Other', 'Electric'])
+        tax = st.number_input('Tasas', 0, 1000, step=10)
+        motor = st.number_input('Miles per gallon', 0, 1000)
+        engine = st.slider('L/motor', 1, 7)
+
+        if model != '' and motor != '' and engine != '':
+            result = st.form_submit_button('Enviar')
+
+    car_predict = [[extract_index(model), year, modelTransmission(transmission), mileage, combustibleType(fuelType),
+                    tax, motor, engine]]
+
+    if sl_model == ' ':
+        st.write('Selecciona una marca de coche')
+    else:
+        st.write('El precio del', sl_model, model, 'es de', model_predict.predict(car_predict)[0].round(), '£')

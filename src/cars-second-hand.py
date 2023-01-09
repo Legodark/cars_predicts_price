@@ -1,12 +1,15 @@
-import streamlit as st
 import joblib
+import streamlit as st
 
 from features.funciones import modelTransmission, combustibleType 
 
+route_cars_fit = "models/cars_fit_model.pkl"
+route_diccionario = "data/diccionario_coches.pkl"
+route_models = "data/models.pkl"
 
-model_predict = joblib.load("cars_fit_model.pkl")
-dic_cars = joblib.load("diccionario_coches.pkl")
-models = joblib.load("models.pkl")
+model_predict = joblib.load(route_cars_fit)
+dic_cars = joblib.load(route_diccionario)
+models = joblib.load(route_models)
 
 st.title('(V.0.3) Predice el precio de tu vehículo:')
 

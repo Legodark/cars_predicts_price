@@ -1,12 +1,12 @@
 import streamlit as st
 import joblib
 
-from features.functions import extract_index, modelTransmission, combustibleType
+from features.functions import extract_index, modelTransmission, combustibleType 
 
 models = joblib.load("data/models.pkl")
 model_predict = joblib.load("models/cars_fit_model.pkl")
 
-st.title('(V.0.1)Predice el precio de tu vehículo:')
+st.title('(V.0.2)Predice el precio de tu vehículo:')
 
 audi = models[0]
 bmw = models[1]

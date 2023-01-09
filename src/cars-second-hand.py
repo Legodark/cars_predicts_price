@@ -65,5 +65,8 @@ with st.form(key='model_form'):
 car_predict = [[extract_index(model), year, modelTransmission(transmission), mileage, combustibleType(fuelType),
                 tax, motor, engine]]
 
-st.write('El precio del', sl_model, model, 'es de', model_predict.predict(car_predict)[0].round(), '£')
+if sl_model == []:
+    st.write('Selecciona una marca de coche')
+else:
+    st.write('El precio del', sl_model, model, 'es de', model_predict.predict(car_predict)[0].round(), '£')
 

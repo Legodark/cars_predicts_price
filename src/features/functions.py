@@ -1,6 +1,6 @@
 import joblib
 
-dic_cars = joblib.load("./data/diccionario_coches.pkl")
+dic_cars = joblib.load("data/diccionario_coches.pkl")
 def extract_index(model):
     for index, coche in dic_cars.items():
         if coche == model:

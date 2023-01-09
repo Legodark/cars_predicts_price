@@ -3,9 +3,9 @@ import streamlit as st
 
 from features.funciones import modelTransmission, combustibleType 
 
-route_cars_fit = "models/cars_fit_model.pkl"
-route_diccionario = "data/diccionario_coches.pkl"
-route_models = "data/models.pkl"
+route_cars_fit = "./models/cars_fit_model.pkl"
+route_diccionario = "./data/diccionario_coches.pkl"
+route_models = "./data/models.pkl"
 
 model_predict = joblib.load(route_cars_fit)
 dic_cars = joblib.load(route_diccionario)

@@ -7,7 +7,7 @@ model_predict = joblib.load("src/models/cars_fit_model.pkl")
 dic_cars = joblib.load("src/data/diccionario_coches.pkl")
 models = joblib.load("src/data/models.pkl")
 
-st.title('(V.0.3) Predice el precio de tu vehículo:')
+st.title('(V.0.4) Predice el precio de tu vehículo:')
 
 audi = models[0]
 bmw = models[1]

@@ -1,11 +1,3 @@
-import joblib
-
-dic_cars = joblib.load("/diccionario_coches.pkl")
-def extract_index(model):
-    for index, coche in dic_cars.items():
-        if coche == model:
-            return index
-
 def modelTransmission(transmission):
     if transmission == 'Automatica':
         return 0

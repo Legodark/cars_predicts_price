@@ -1,12 +1,13 @@
 import streamlit as st
 import joblib
 
-from data.funciones import extract_index, modelTransmission, combustibleType 
+from features.funciones import modelTransmission, combustibleType 
 
 models = joblib.load("data/models.pkl")
 model_predict = joblib.load("models/cars_fit_model.pkl")
+dic_cars = joblib.load('data/diccionario_coches.pkl')
 
-st.title('(V.0.2)Predice el precio de tu vehículo:')
+st.title('(V.0.3) Predice el precio de tu vehículo:')
 
 audi = models[0]
 bmw = models[1]
@@ -17,6 +18,11 @@ skoda = models[5]
 toyota = models[6]
 vauxhall = models[7]
 vw = models[8]
+
+def extract_index(model):
+    for index, coche in dic_cars.items():
+        if coche == model:
+            return index
 
 st.text('Selecciona la marca de tu vehículo:')
 sl_model = st.selectbox('Marca', ['Audi', 'BMW', 'Ford', 'Hyundai', 'Mercedes', 'Skoda', 'Toyota', 'Vauxhall',

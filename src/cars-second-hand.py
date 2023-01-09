@@ -3,9 +3,10 @@ import joblib
 
 from features.funciones import modelTransmission, combustibleType 
 
-models = joblib.load("data/models.pkl")
-model_predict = joblib.load("models/cars_fit_model.pkl")
-dic_cars = joblib.load('data/diccionario_coches.pkl')
+
+model_predict = joblib.load("cars_fit_model.pkl")
+dic_cars = joblib.load("diccionario_coches.pkl")
+models = joblib.load("models.pkl")
 
 st.title('(V.0.3) Predice el precio de tu vehículo:')
 

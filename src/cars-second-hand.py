@@ -18,7 +18,7 @@ with col_1:
 
 with col_2:
     
-    logo = 'images/fiat500.png'
+    logo = 'src/images/fiat500.png'
     st.image(logo)
 
 st.markdown('##### ***(V.1.1)***')

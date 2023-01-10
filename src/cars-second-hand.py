@@ -5,9 +5,14 @@ from features.funciones import extract_index, modelTransmission, combustibleType
 
 st.set_page_config(
     initial_sidebar_state="collapsed"
-) 
+)
 
-model_predict = joblib.load("src/models/cars_fit_model.pkl")
+# Cache para cargar el modelo 1 vez.
+@st.cache(allow_output_mutation=True)
+def load_model():
+	  return joblib.load("src/models/cars_fit_model.pkl")
+
+model_predict = load_model()
 models = joblib.load("src/data/models.pkl")
 
 col_1, col_2 = st.columns([2, 0.3])
@@ -21,9 +26,9 @@ with col_2:
     logo = 'src/images/fiat500.png'
     st.image(logo)
 
-st.markdown('##### ***(V.1.1)***')
+st.markdown('##### ***(V.1.2)***')
 
-
+# Variables donde se almacenan los datos para los menus
 audi = models[0]
 bmw = models[1]
 ford = models[2]
@@ -39,6 +44,7 @@ model = ' '
 sl_model = st.selectbox('Marca', [' ','Audi', 'BMW', 'Ford', 'Hyundai', 'Mercedes', 'Skoda', 'Toyota', 'Vauxhall',
                                   'Volkswagen'])
 
+# Formulario
 if sl_model == ' ':
     st.write('Usa el selector de arriba para seleccionar una marca y que se despliegue el formulario')
 else:     
@@ -81,7 +87,7 @@ else:
         engine = st.slider('L/motor', 1.0, 20.0)
 
         if model != '' and motor != 0 and engine != 0:
-            if st.form_submit_button('Enviar'):
+            if st.form_submit_button('Predecir :car:'):
                 car_predict = [[extract_index(model), 
                                 year, 
                                 modelTransmission(transmission), 
@@ -96,7 +102,7 @@ else:
                 else:
                     st.write('El precio del', sl_model, model, 'es de', model_predict.predict(car_predict)[0].round(), '£')
         else:
-            if st.form_submit_button('Enviar'):
+            if st.form_submit_button('Predecir :car:'):
                 st.text('Por favor rellene todos los campos')
                 
 # Configuración de sidebar
@@ -106,8 +112,3 @@ st.sidebar.title('Puedes encontrame en:')
 st.sidebar.markdown(':computer: [***Mi blog***](https://ozerec.addpotion.com)')
 st.sidebar.markdown(':cat: [***Mi Github***](https://github.com/legodark)')
 st.sidebar.markdown(':office: [***Mi Linkedin***](https://www.linkedin.com/in/jcs91/)')
-
-            
-    
-
-    

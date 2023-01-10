@@ -31,31 +31,31 @@ else:
     with st.form(key='model_form'):
         
         if sl_model == 'Audi':
-            st.image('images/audi.png')
+            st.image('src/images/audi.png')
             model = st.selectbox('Modelo', audi)
         if sl_model == 'BMW':
-            st.image('images/bmw.png')
+            st.image('src/images/bmw.png')
             model = st.selectbox('Modelo', bmw)
         if sl_model == 'Ford':
-            st.image('images/ford.png')
+            st.image('src/images/ford.png')
             model = st.selectbox('Modelo', ford)
         if sl_model == 'Hyundai':
-            st.image('images/hyundai.png')
+            st.image('src/images/hyundai.png')
             model = st.selectbox('Modelo', hyundai)
         if sl_model == 'Mercedes':
-            st.image('images/mercedesbenz.png')
+            st.image('src/images/mercedesbenz.png')
             model = st.selectbox('Modelo', mercedes)
         if sl_model == 'Skoda':
-            st.image('images/skoda.png')
+            st.image('src/images/skoda.png')
             model = st.selectbox('Modelo', skoda)
         if sl_model == 'Toyota':
-            st.image('images/toyota.png')
+            st.image('src/images/toyota.png')
             model = st.selectbox('Modelo', toyota)
         if sl_model == 'Vauxhall':
-            st.image('images/vauxhall.png')
+            st.image('src/images/vauxhall.png')
             model = st.selectbox('Modelo', vauxhall)
         if sl_model == 'Volkswagen':
-            st.image('images/volkswagen.png')
+            st.image('src/images/volkswagen.png')
             model = st.selectbox('Modelo', vw)
 
         year = st.slider('Año de fabricación', 1980, 2020)

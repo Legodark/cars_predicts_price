@@ -1,13 +1,28 @@
 import joblib
 import streamlit as st
 
-from features.funciones import extract_index, modelTransmission, combustibleType 
+from features.funciones import extract_index, modelTransmission, combustibleType
+
+st.set_page_config(
+    initial_sidebar_state="collapsed"
+) 
 
 model_predict = joblib.load("src/models/cars_fit_model.pkl")
 models = joblib.load("src/data/models.pkl")
 
-st.markdown('# Predice el precio de tu vehículo')
-st.markdown('##### ***(V.1.0)***')
+col_1, col_2 = st.columns([2, 0.3])
+
+with col_1:
+    
+    st.title('Predice el precio de tu vehículo')
+
+with col_2:
+    
+    logo = 'images/fiat500.png'
+    st.image(logo)
+
+st.markdown('##### ***(V.1.1)***')
+
 
 audi = models[0]
 bmw = models[1]
@@ -21,7 +36,6 @@ vw = models[8]
 
 model = ' '
 
-st.markdown('### Selecciona la marca de tu vehículo:')
 sl_model = st.selectbox('Marca', [' ','Audi', 'BMW', 'Ford', 'Hyundai', 'Mercedes', 'Skoda', 'Toyota', 'Vauxhall',
                                   'Volkswagen'])
 
@@ -84,6 +98,15 @@ else:
         else:
             if st.form_submit_button('Enviar'):
                 st.text('Por favor rellene todos los campos')
+                
+# Configuración de sidebar
+                
+st.sidebar.image('src/images/profile_image.png')
+st.sidebar.title('Puedes encontrame en:')
+st.sidebar.markdown(':computer: [***Mi blog***](https://ozerec.addpotion.com)')
+st.sidebar.markdown(':cat: [***Mi Github***](https://github.com/legodark)')
+st.sidebar.markdown(':office: [***Mi Linkedin***](https://www.linkedin.com/in/jcs91/)')
+
             
     
 

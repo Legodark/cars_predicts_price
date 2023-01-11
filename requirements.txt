@@ -5,3 +5,4 @@ seaborn
 streamlit
 scikit-learn
 joblib
+forex-python

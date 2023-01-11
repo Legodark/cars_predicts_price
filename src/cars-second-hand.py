@@ -1,7 +1,7 @@
 import joblib
 import streamlit as st
 
-from features.funciones import extract_index, modelTransmission, combustibleType
+from features.funciones import extract_index, modelTransmission, combustibleType, convertidor
 
 st.set_page_config(
     initial_sidebar_state="collapsed"
@@ -15,6 +15,8 @@ def load_model():
 model_predict = load_model()
 models = joblib.load("src/data/models.pkl")
 
+
+
 col_1, col_2 = st.columns([2, 0.3])
 
 with col_1:
@@ -26,7 +28,7 @@ with col_2:
     logo = 'src/images/fiat500.png'
     st.image(logo)
 
-st.markdown('##### ***(V.1.2)***')
+st.markdown('##### ***(V.1.3)***')
 
 # Variables donde se almacenan los datos para los menus
 audi = models[0]
@@ -85,6 +87,7 @@ else:
         tax = st.number_input('Tasas', 0, 1000, step=10)
         motor = st.number_input('Millas por Galón', 0.0, 1000.0)
         engine = st.slider('L/motor', 1.0, 20.0)
+        divisa = st.selectbox('Divisa', ['€', '$', '£'])
 
         if model != '' and motor != 0 and engine != 0:
             if st.form_submit_button('Predecir :car:'):
@@ -96,11 +99,13 @@ else:
                                 tax, 
                                 motor, 
                                 engine]]
+                
+                car_price = model_predict.predict(car_predict)[0].round()
         
                 if sl_model == ' ':
                     st.write('Selecciona una marca de coche')
                 else:
-                    st.write('El precio del', sl_model, model, 'es de', model_predict.predict(car_predict)[0].round(), '£')
+                    st.markdown(f'## El precio de su :red[{sl_model} {model}] es de :green[{int(convertidor(divisa, car_price))}]:orange[{divisa}]')
         else:
             if st.form_submit_button('Predecir :car:'):
                 st.text('Por favor rellene todos los campos')

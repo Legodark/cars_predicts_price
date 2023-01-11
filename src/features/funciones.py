@@ -1,5 +1,8 @@
 import joblib
+from forex_python.converter import CurrencyRates
 
+# Instanciado del conversor de divisas
+c = CurrencyRates()
 
 dic_cars = joblib.load("src/data/diccionario_coches.pkl")
 
@@ -30,3 +33,13 @@ def combustibleType(fuelType):
         return 3
     elif fuelType == 'Other':
         return 4
+    
+def convertidor(divisa, car_price):
+    if divisa == '€':
+        coin_convert = c.convert('GBP', 'EUR', car_price)
+        return coin_convert
+    elif divisa == '$':
+        coin_convert = c.convert('GBP', 'USD', car_price)
+        return coin_convert
+    else:
+        return car_price

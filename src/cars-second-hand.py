@@ -105,7 +105,7 @@ else:
                 if sl_model == ' ':
                     st.write('Selecciona una marca de coche')
                 else:
-                    st.markdown(f'## El precio de su :red[{sl_model} {model}] es de :green[{int(convertidor(divisa, car_price))}]:orange[{divisa}]')
+                    st.markdown(f'### El precio de su :red[{sl_model} {model}] es de :green[{int(convertidor(divisa, car_price))}]:orange[{divisa}]')
         else:
             if st.form_submit_button('Predecir :car:'):
                 st.text('Por favor rellene todos los campos')

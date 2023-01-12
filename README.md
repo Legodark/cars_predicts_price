@@ -8,3 +8,7 @@ Tenemos un concesionario multimarca en el cual disponemos de varios vehículos d
 
 - Colab: Para trabajar los datos y realizar el entrenamiento
 - Streamlit: Para desplegar y alojar la aplicación.
+
+### Aplicación
+
+Puedes probar la aplicación en el siguiente enlace [¡Predice el precio de tu vehículo! :car:](https://legodark-cars-predicts-price-srccars-second-hand-7nthoj.streamlit.app)

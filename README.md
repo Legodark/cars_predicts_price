@@ -8,6 +8,10 @@ Versión actual: ***V.2***
 
 Tengo un concesionario multimarca en el cual disponemos de varios vehículos de segunda mano adquiridos recientemente para su venta, para establecer el precio, he decidido usar Machine Learning, el cual, bajo un entrenamiento previo de los precios del mercado de segunda mano, es capaz de decirnos cual sería el mejor precio de venta para estas últimas adquisiciones.
 
+El dataset que he utilizado lo puedes encontrar enlace de kaggle:
+
+[![python](https://img.shields.io/badge/UK--CARS-black?style=flat&logo=kaggle&logoColor=#3776AB&labelColor=101010)](https://www.kaggle.com/datasets/adityadesai13/used-car-dataset-ford-and-mercedes)
+
 ## Tecnologías usadas
 
 [![python](https://img.shields.io/badge/python-black?style=for-the-badge&logo=python&logoColor=#3776AB&labelColor=101010)]()[![numpy](https://img.shields.io/badge/numpy-black?style=for-the-badge&logo=numpy&logoColor=#013243&labelColor=101010)]()[![pandas](https://img.shields.io/badge/pandas-black?style=for-the-badge&logo=pandas&logoColor=#150458&labelColor=101010)]()[![scikit](https://img.shields.io/badge/scikit--learn-black?style=for-the-badge&logo=scikit-learn&logoColor=#F7931E&labelColor=101010)]()[![streamlit](https://img.shields.io/badge/streamlit-black?style=for-the-badge&logo=Streamlit&logoColor=#FF4B4B&labelColor=101010)]()[![colab](https://img.shields.io/badge/Colab-black?style=for-the-badge&logo=Google-Colab&logoColor=#F9AB00&labelColor=101010)]()

@@ -10,10 +10,10 @@ st.set_page_config(
 # Cache para cargar el modelo 1 vez.
 @st.cache(allow_output_mutation=True)
 def load_model():
-	  return joblib.load("src/models/cars_fit_model.pkl")
+	  return joblib.load("models/cars_fit_model.pkl")
 
 model_predict = load_model()
-models = joblib.load("src/data/models.pkl")
+models = joblib.load("data/models.pkl")
 
 
 
@@ -25,10 +25,10 @@ with col_1:
 
 with col_2:
     
-    logo = 'src/images/fiat500.png'
+    logo = 'images/giphy.gif'
     st.image(logo)
 
-st.markdown('##### ***(V.1.3)***')
+st.markdown('##### ***(V.2)***')
 
 # Variables donde se almacenan los datos para los menus
 audi = models[0]
@@ -43,7 +43,14 @@ vw = models[8]
 
 model = ' '
 
-sl_model = st.selectbox('Marca', [' ','Audi', 'BMW', 'Ford', 'Hyundai', 'Mercedes', 'Skoda', 'Toyota', 'Vauxhall',
+sl_model = st.selectbox('Marca', [' ','Audi', 
+                                  'BMW', 
+                                  'Ford', 
+                                  'Hyundai', 
+                                  'Mercedes', 
+                                  'Skoda', 
+                                  'Toyota', 
+                                  'Vauxhall',
                                   'Volkswagen'])
 
 # Formulario
@@ -53,31 +60,31 @@ else:
     with st.form(key='model_form'):
         
         if sl_model == 'Audi':
-            st.image('src/images/audi.png')
+            st.image('images/audi.png')
             model = st.selectbox('Modelo', audi)
         if sl_model == 'BMW':
-            st.image('src/images/bmw.png')
+            st.image('images/bmw.png')
             model = st.selectbox('Modelo', bmw)
         if sl_model == 'Ford':
-            st.image('src/images/ford.png')
+            st.image('images/ford.png')
             model = st.selectbox('Modelo', ford)
         if sl_model == 'Hyundai':
-            st.image('src/images/hyundai.png')
+            st.image('images/hyundai.png')
             model = st.selectbox('Modelo', hyundai)
         if sl_model == 'Mercedes':
-            st.image('src/images/mercedesbenz.png')
+            st.image('images/mercedesbenz.png')
             model = st.selectbox('Modelo', mercedes)
         if sl_model == 'Skoda':
-            st.image('src/images/skoda.png')
+            st.image('images/skoda.png')
             model = st.selectbox('Modelo', skoda)
         if sl_model == 'Toyota':
-            st.image('src/images/toyota.png')
+            st.image('images/toyota.png')
             model = st.selectbox('Modelo', toyota)
         if sl_model == 'Vauxhall':
-            st.image('src/images/vauxhall.png')
+            st.image('images/vauxhall.png')
             model = st.selectbox('Modelo', vauxhall)
         if sl_model == 'Volkswagen':
-            st.image('src/images/volkswagen.png')
+            st.image('images/volkswagen.png')
             model = st.selectbox('Modelo', vw)
 
         year = st.slider('Año de fabricación', 1980, 2020)
@@ -89,6 +96,7 @@ else:
         engine = st.slider('L/motor', 1.0, 20.0)
         divisa = st.selectbox('Divisa', ['€', '$', '£'])
 
+        # Procesamiento del formulario
         if model != '' and motor != 0 and engine != 0:
             if st.form_submit_button('Predecir :car:'):
                 car_predict = [[extract_index(model), 
@@ -100,6 +108,7 @@ else:
                                 motor, 
                                 engine]]
                 
+                # Predicción del vehículo
                 car_price = model_predict.predict(car_predict)[0].round()
         
                 if sl_model == ' ':
@@ -112,7 +121,7 @@ else:
                 
 # Configuración de sidebar
                 
-st.sidebar.image('src/images/profile_image.png')
+st.sidebar.image('images/profile_image.png')
 st.sidebar.title('Puedes encontrame en:')
 st.sidebar.markdown(':computer: [***Mi blog***](https://ozerec.addpotion.com)')
 st.sidebar.markdown(':cat: [***Mi Github***](https://github.com/legodark)')

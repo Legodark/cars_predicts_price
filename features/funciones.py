@@ -4,7 +4,7 @@ from forex_python.converter import CurrencyRates
 # Instanciado del conversor de divisas
 c = CurrencyRates()
 
-dic_cars = joblib.load("src/data/diccionario_coches.pkl")
+dic_cars = joblib.load("data/diccionario_coches.pkl")
 
 def extract_index(model):
     for index, coche in dic_cars.items():

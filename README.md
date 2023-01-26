@@ -6,7 +6,7 @@ Versión actual: ***V.2***
 
 ## Concepto
 
-Tengo un concesionario multimarca en el cual disponemos de varios vehículos de segunda mano adquiridos recientemente para su venta, para establecer el precio, he decidido usar Machine Learning, el cual, bajo un entrenamiento previo de los precios del mercado de segunda mano, es capaz de decirnos cual sería el mejor precio de venta para estas últimas adquisiciones.
+Tengo un concesionario multimarca en el cual disponemos de varios vehículos de segunda mano adquiridos recientemente para su venta, para establecer el precio, he decidido usar Machine Learning, el cual, bajo un entrenamiento previo de los precios del mercado de segunda mano, es capaz de decirme cual sería el mejor precio de venta para estas últimas adquisiciones.
 
 El dataset que he utilizado lo puedes encontrar en kaggle:
 

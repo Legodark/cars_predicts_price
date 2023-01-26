@@ -8,9 +8,9 @@ Versión actual: ***V.2***
 
 Tengo un concesionario multimarca en el cual disponemos de varios vehículos de segunda mano adquiridos recientemente para su venta, para establecer el precio, he decidido usar Machine Learning, el cual, bajo un entrenamiento previo de los precios del mercado de segunda mano, es capaz de decirnos cual sería el mejor precio de venta para estas últimas adquisiciones.
 
-El dataset que he utilizado lo puedes encontrar enlace de kaggle:
+El dataset que he utilizado lo puedes encontrar en kaggle:
 
-[![python](https://img.shields.io/badge/UK--CARS-black?style=flat&logo=kaggle&logoColor=#3776AB&labelColor=101010)](https://www.kaggle.com/datasets/adityadesai13/used-car-dataset-ford-and-mercedes)
+[![kaggle](https://img.shields.io/badge/UK--CARS-black?style=flat&logo=kaggle&logoColor=#3776AB&labelColor=101010)](https://www.kaggle.com/datasets/adityadesai13/used-car-dataset-ford-and-mercedes)
 
 ## Tecnologías usadas
 

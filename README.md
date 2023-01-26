@@ -2,9 +2,11 @@
 
 (Detalles del proyecto en proceso)
 
+Versión actual: ***V.2***
+
 ## Concepto
 
-Tenemos un concesionario multimarca en el cual disponemos de varios vehículos de segunda mano adquiridos recientemente para su venta, para establecer el precio, hemos decidido usar Machine Learning, el cual, bajo un entrenamiento previo de los precios del mercado de segunda mano, es capaz de decirnos cual sería el mejor precio de venta para estas últimas adquisiciones.
+Tengo un concesionario multimarca en el cual disponemos de varios vehículos de segunda mano adquiridos recientemente para su venta, para establecer el precio, he decidido usar Machine Learning, el cual, bajo un entrenamiento previo de los precios del mercado de segunda mano, es capaz de decirnos cual sería el mejor precio de venta para estas últimas adquisiciones.
 
 ## Tecnologías usadas
 
@@ -15,7 +17,7 @@ Tenemos un concesionario multimarca en el cual disponemos de varios vehículos d
 
 Puedes probar la aplicación aquí:
 
-[![streamlit](https://img.shields.io/badge/streamlit-Probar-black?style=flat&logo=Streamlit&logoColor=#FF4B4B&labelColor=101010)](https://legodark-cars-predicts-price-srccars-second-hand-7nthoj.streamlit.app)
+[![streamlit](https://img.shields.io/badge/streamlit-Probar-black?style=flat&logo=Streamlit&logoColor=#FF4B4B&labelColor=101010)](https://legodark-cars-predicts-price-cars-second-hand-mg2aep.streamlit.app)
 
 
 ### 1. Preparación de los datos
@@ -26,7 +28,7 @@ Puedes ver la preparación de los datos aquí:
 
 ### 2. Desarrollo
 
-La siguiente imagen se representa el desarrollo para el selector de marca:
+En la siguiente imagen se representa el desarrollo para el selector de marca:
 
 ![Formulario](images/examples/code_1.png)
 

@@ -25,7 +25,7 @@ with col_1:
 
 with col_2:
     
-    logo = 'images/giphy.gif'
+    logo = 'images/logo.gif'
     st.image(logo)
 
 st.markdown('##### ***(V.2)***')

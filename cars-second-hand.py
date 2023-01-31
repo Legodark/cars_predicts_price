@@ -28,30 +28,23 @@ with col_2:
     logo = 'images/logo.gif'
     st.image(logo)
 
-st.markdown('##### ***(V.2)***')
+st.markdown('##### ***(V.2.1)***')
 
-# Variables donde se almacenan los datos para los menus
-audi = models[0]
-bmw = models[1]
-ford = models[2]
-hyundai = models[3]
-mercedes = models[4]
-skoda = models[5]
-toyota = models[6]
-vauxhall = models[7]
-vw = models[8]
+# Diccionario que almacena las marcas y los modelos
+marcas_modelos = {' ': '',
+                  'Audi': models[0],
+                  'Bmw': models[1],
+                  'Ford': models[2],
+                  'Hyundai': models[3],
+                  'Mercedes': models[4],
+                  'Skoda': models[5],
+                  'Toyota': models[6],
+                  'Vauxhall': models[7],
+                  'Volkswagen': models[8]
+                  }
 
-model = ' '
-
-sl_model = st.selectbox('Marca', [' ','Audi', 
-                                  'BMW', 
-                                  'Ford', 
-                                  'Hyundai', 
-                                  'Mercedes', 
-                                  'Skoda', 
-                                  'Toyota', 
-                                  'Vauxhall',
-                                  'Volkswagen'])
+# Selector de marca
+sl_model = st.selectbox('Marca', marcas_modelos.keys())
 
 # Formulario
 if sl_model == ' ':
@@ -59,33 +52,8 @@ if sl_model == ' ':
 else:     
     with st.form(key='model_form'):
         
-        if sl_model == 'Audi':
-            st.image('images/audi.png')
-            model = st.selectbox('Modelo', audi)
-        if sl_model == 'BMW':
-            st.image('images/bmw.png')
-            model = st.selectbox('Modelo', bmw)
-        if sl_model == 'Ford':
-            st.image('images/ford.png')
-            model = st.selectbox('Modelo', ford)
-        if sl_model == 'Hyundai':
-            st.image('images/hyundai.png')
-            model = st.selectbox('Modelo', hyundai)
-        if sl_model == 'Mercedes':
-            st.image('images/mercedesbenz.png')
-            model = st.selectbox('Modelo', mercedes)
-        if sl_model == 'Skoda':
-            st.image('images/skoda.png')
-            model = st.selectbox('Modelo', skoda)
-        if sl_model == 'Toyota':
-            st.image('images/toyota.png')
-            model = st.selectbox('Modelo', toyota)
-        if sl_model == 'Vauxhall':
-            st.image('images/vauxhall.png')
-            model = st.selectbox('Modelo', vauxhall)
-        if sl_model == 'Volkswagen':
-            st.image('images/volkswagen.png')
-            model = st.selectbox('Modelo', vw)
+        st.image(f"images/{sl_model.lower()}.png")
+        model = st.selectbox('Modelo', marcas_modelos[sl_model])
 
         year = st.slider('Año de fabricación', 1980, 2020)
         transmission = st.selectbox('Transmisión', ['Automatica', 'Manual', 'Semi-automatica', 'Other'])
